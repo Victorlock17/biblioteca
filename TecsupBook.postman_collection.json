@@ -1,0 +1,273 @@
+{
+  "info": {
+    "_postman_id": "bb2bd638-e0df-4fa0-8547-33b15609ae4f",
+    "name": "TecsupBook",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54390276",
+    "_collection_link": "https://go.postman.co/collection/54390276-bb2bd638-e0df-4fa0-8547-33b15609ae4f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Registrar autor",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Gabriel García Márquez\",\r\n  \"nacionalidad\": \"Colombiana\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/autores",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "autores"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar autores",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Gabriel García Márquez\",\r\n  \"nacionalidad\": \"Colombiana\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/autores",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "autores"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Registrar Libro",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"titulo\": \"Cien años de soledad\",\r\n  \"editorial\": \"Sudamericana\",\r\n  \"anioPublicacion\": 1967,\r\n  \"autor\": {\r\n    \"id\": 1\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/libros",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "libros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar libros",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/libros",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "libros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar libro por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/libros/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "libros",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar por título",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/libros/buscar?titulo=Cien años de soledad",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "libros",
+            "buscar"
+          ],
+          "query": [
+            {
+              "key": "titulo",
+              "value": "Cien años de soledad"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Año mayor",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/libros/anio-mayor?anio=1960",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "libros",
+            "anio-mayor"
+          ],
+          "query": [
+            {
+              "key": "anio",
+              "value": "1960"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Error: título vacío",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"titulo\":\"\",\"editorial\":\"X\",\"anioPublicacion\":2000,\"autor\":{\"id\":1}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/libros",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "libros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Error: año futuro",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"titulo\":\"Futuro\",\"editorial\":\"X\",\"anioPublicacion\":2099,\"autor\":{\"id\":1}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/libros",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "libros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Error: libro no existe",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/libros/999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "libros",
+            "999"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
